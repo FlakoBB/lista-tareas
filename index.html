@@ -5,41 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <title>Lista de Tareas</title>
 </head>
 <body class="bg-dark">
-    <div class="container">
-        <header class="my-5">
+    <div class="container d-flex align-items-center justify-content-center flex-column">
+        <header class="my-5 col-12 col-md-12 col-lg-9 col-xl-6">
             <div class="input-group">
                 <input type="text" id="nu-tarea" class="form-control" placeholder="Escribe una tarea">
                 <button class="btn btn-info lg-6">Agregar</button>
             </div>
         </header>
-        <section class="incompletas ">
+        <h2 class="text-light">Tareas Incompletas</h2>
+        <section class="incompletas col-12 col-md-12 col-lg-9 col-xl-6">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">
+                <li class="list-group-item d-flex align-items-center justify-content-between">
                     <span class="">Tarea 1</span>
                     <div class="btn-group">
-                        <button class="btn btn-danger">X</button>
-                        <button class="btn btn-success">C</button>
+                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
                     </div>
                 </li>
-                <li class="list-group-item">Dos</li>
-                <li class="list-group-item">Tres</li>
+                <li class="list-group-item d-flex align-items-center justify-content-between">
+                    <span class="">Esta es la tarea numero 2</span>
+                    <div class="btn-group">
+                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center justify-content-between">
+                    <span class="">Y esta es la 3</span>
+                    <div class="btn-group">
+                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
+                    </div>
+                </li>
             </ul>
         </section>
-        <hr class="">
-        <section class="incompletas ">
+        <hr class="text-light col-12 col-md-12 col-lg-9 col-xl-6">
+        <h2 class="text-light">Tareas Completadas</h2>
+        <section class="incompletas col-12 col-md-12 col-lg-9 col-xl-6 ">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <span class="">Tarea 1</span>
+                <li class="list-group-item d-flex align-items-center justify-content-between">
+                    <span class="">Tarea completada 1</span>
                     <div class="btn-group">
-                        <button class="btn btn-danger">X</button>
-                        <button class="btn btn-success">C</button>
+                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
                     </div>
                 </li>
-                <li class="list-group-item">Dos</li>
-                <li class="list-group-item">Tres</li>
+                <li class="list-group-item d-flex align-items-center justify-content-between">
+                    <span class="">Esta es la tarea completada numero 2</span>
+                    <div class="btn-group">
+                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center justify-content-between">
+                    <span class="">Y esta es la 3</span>
+                    <div class="btn-group">
+                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
+                    </div>
+                </li>
             </ul>
         </section>
     </div>
