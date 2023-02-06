@@ -13,63 +13,39 @@
         <header class="my-5 col-12 col-md-12 col-lg-9 col-xl-6">
             <div class="input-group">
                 <input type="text" id="nu-tarea" class="form-control" placeholder="Escribe una tarea">
-                <button class="btn btn-info lg-6">Agregar</button>
+                <button id="btn-nueva-tarea" class="btn btn-info">Agregar</button>
             </div>
         </header>
         <h2 class="text-light">Tareas Incompletas</h2>
         <section class="incompletas col-12 col-md-12 col-lg-9 col-xl-6">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex align-items-center justify-content-between">
-                    <span class="">Tarea 1</span>
-                    <div class="btn-group">
-                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex align-items-center justify-content-between">
-                    <span class="">Esta es la tarea numero 2</span>
-                    <div class="btn-group">
-                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex align-items-center justify-content-between">
-                    <span class="">Y esta es la 3</span>
-                    <div class="btn-group">
-                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
-                    </div>
-                </li>
-            </ul>
+            <ul id="lista-incompletas" class="list-group list-group-flush"></ul>
         </section>
         <hr class="text-light col-12 col-md-12 col-lg-9 col-xl-6">
         <h2 class="text-light">Tareas Completadas</h2>
-        <section class="incompletas col-12 col-md-12 col-lg-9 col-xl-6 ">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex align-items-center justify-content-between">
-                    <span class="">Tarea completada 1</span>
-                    <div class="btn-group">
-                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex align-items-center justify-content-between">
-                    <span class="">Esta es la tarea completada numero 2</span>
-                    <div class="btn-group">
-                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex align-items-center justify-content-between">
-                    <span class="">Y esta es la 3</span>
-                    <div class="btn-group">
-                        <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                        <button class="btn btn-success"><i class="bi bi-check2-circle"></i></button>
-                    </div>
-                </li>
-            </ul>
+        <section class="completas col-12 col-md-12 col-lg-9 col-xl-6 ">
+            <ul id="lista-completas" class="list-group list-group-flush"></ul>
         </section>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="eliminarM" tabindex="-1" aria-labelledby="eliminarMLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="eliminarMLabel">Eliminar tarea</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Quiere eliminar la tarea?
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mantener</button>
+            <button type="button" class="btn btn-primary">Eliminar</button>
+            </div>
+        </div>
+        </div>
+    </div>
 </body>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="./js/index.js"></script>
 </html>
