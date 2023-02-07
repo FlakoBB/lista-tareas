@@ -1,12 +1,35 @@
 const nueva_tarea = document.getElementById("nu-tarea")
 const lista_incompletas = document.getElementById("lista-incompletas")
 const lista_completas = document.getElementById("lista-completas")
-const agregar = document.getElementById("btn-nueva-tarea")
+const btn_agregar = document.getElementById("btn-nueva-tarea")
+
+// Accede al item correspondiente al boton cliqueado, identifica en que lista se encuentra y lo pasa a la otra lista
+function terminarTarea() {
+    let item = this.parentNode.parentNode
+    let lista = item.parentNode
+    let lista_id = lista.id
+
+    if(lista_id === lista_incompletas.id) {
+        this.classList.replace("btn-success", "btn-info")
+        let icon = this.firstChild
+        icon.classList.replace("bi-check2-circle", "bi-arrow-repeat")
+
+        lista.removeChild(item)
+        lista_completas.insertBefore(item, lista_completas.childNodes[0])
+    } else if(lista_id === lista_completas.id) {
+        this.classList.replace("btn-info", "btn-success")
+        let icon = this.firstChild
+        icon.classList.replace("bi-arrow-repeat", "bi-check2-circle")
+
+        lista.removeChild(item)
+        lista_incompletas.insertBefore(item, lista_incompletas.childNodes[0])
+    }
+}
 
 // Funcion que crea un item con todos sus elementos hijos y lo agrega a la lista de tareas incompletas
 function crearItemNuevaTarea(texto) {
     let nuevo_item = document.createElement("li")
-    nuevo_item.classList.add("list-group-item", "d-flex", "align-items-center", "justify-content-between")
+    nuevo_item.classList.add("my-1", "list-group-item", "d-flex", "align-items-center", "justify-content-between")
 
     
     let span = document.createElement("span")
@@ -27,11 +50,9 @@ function crearItemNuevaTarea(texto) {
 
     let boton_completar = document.createElement("button")
     boton_completar.classList.add("btn", "btn-success")
-    boton_completar.setAttribute("id", "completar-btn")
     
     let icono_completar = document.createElement("i")
     icono_completar.classList.add("bi", "bi-check2-circle")
-    icono_completar.setAttribute("id", "icon-com")
     
     boton_completar.appendChild(icono_completar)
     
@@ -44,53 +65,23 @@ function crearItemNuevaTarea(texto) {
     nuevo_item.appendChild(grupo_botones)
 
     // Agrega a la lista
-    lista_incompletas.appendChild(nuevo_item)
+    lista_incompletas.insertBefore(nuevo_item, lista_incompletas.childNodes[0])
+
+    // LISTENERS
+    // Terminar Tarea
+    boton_completar.addEventListener("click", terminarTarea)
 }
 
-function terminarTarea() {
-    let boton = document.getElementById("completar-btn")
-    boton.classList.replace("btn-success", "btn-info")
-    boton.id = "agregar-again"
-    let icon = boton.firstChild
-    icon.classList.replace("bi-check2-circle", "bi-arrow-repeat")
-    icon.id = "icon-aga"
-    let item = boton.parentNode.parentNode
-    lista_incompletas.removeChild(item)
-    lista_completas.appendChild(item)
-
-    // <i class="bi bi-arrow-repeat"></i>
-}
-
-function agregarAgain() {
-    let boton = document.getElementById("agregar-again")
-    boton.classList.replace("btn-info", "btn-success")
-    boton.id = "completar-btn"
-    let icon = boton.firstChild
-    icon.classList.replace("bi-arrow-repeat", "bi-check2-circle")
-    icon.id = "icon-com"
-    let item = boton.parentNode.parentNode
-    lista_completas.removeChild(item)
-    lista_incompletas.appendChild(item)
-}
-
-agregar.addEventListener("click", () => {
+function nuevaTarea() {
     let tarea = nueva_tarea.value
     if(tarea) {
         crearItemNuevaTarea(tarea)
         nueva_tarea.value = ""
     }
-})
+}
 
-lista_incompletas.addEventListener("click", event => {
-    let event_id = event.target.id
-    if(event_id === "completar-btn" || event_id === "icon-com") {
-        terminarTarea()
-    }
-})
+btn_agregar.addEventListener("click", nuevaTarea)
 
-lista_completas.addEventListener("click", event => {
-    let event_id = event.target.id
-    if(event_id === "agregar-again" || event_id === "icon-aga") {
-        agregarAgain()
-    }
+nueva_tarea.addEventListener("keydown", event => {
+    if(event.key === "Enter") nuevaTarea()
 })
