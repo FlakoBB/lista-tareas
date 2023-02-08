@@ -26,12 +26,20 @@ function terminarTarea() {
     }
 }
 
+// Se guarda el item seleccionado y en caso de cliquear el boton "eliminar", se confirma su eliminacion
+let item_eliminar
+function eliminarTarea() {
+    item_eliminar = this.parentNode.parentNode
+
+    const confirmar = document.getElementById("confirma-eliminar")
+    confirmar.addEventListener("click", () => {item_eliminar.remove()})
+}
+
 // Funcion que crea un item con todos sus elementos hijos y lo agrega a la lista de tareas incompletas
 function crearItemNuevaTarea(texto) {
     let nuevo_item = document.createElement("li")
-    nuevo_item.classList.add("my-1", "list-group-item", "d-flex", "align-items-center", "justify-content-between")
+    nuevo_item.classList.add("my-1", "list-group-item", "d-flex", "align-items-center", "justify-content-between", "rounded")
 
-    
     let span = document.createElement("span")
     span.innerHTML = texto
     
@@ -70,8 +78,12 @@ function crearItemNuevaTarea(texto) {
     // LISTENERS
     // Terminar Tarea
     boton_completar.addEventListener("click", terminarTarea)
+
+    // Eliminar Tarea
+    boton_eliminar.addEventListener("click", eliminarTarea)
 }
 
+// Verifica que el input no este vacio y llama a la funcion crearItemNuevaTarea()
 function nuevaTarea() {
     let tarea = nueva_tarea.value
     if(tarea) {
@@ -80,6 +92,7 @@ function nuevaTarea() {
     }
 }
 
+// Agregar la nueva tarea (clic al boton y presionar tecla enter)
 btn_agregar.addEventListener("click", nuevaTarea)
 
 nueva_tarea.addEventListener("keydown", event => {
